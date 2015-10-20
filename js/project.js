@@ -23,20 +23,26 @@ function readableTimespan(milliseconds) {
    };
 }
 
-function timerFactory(timespan) {
+function timerFactory(minutes, $element) {
    var start = new Date();
-   var distance = 25 * minuteInMs;
+   var distance = minutes * minuteInMs;
    var destination = new Date(start.valueOf() + distance);
-   return {
+   var timer = {
       destination: destination,
+      display: $element.find('.timer-display'),
       read: function() {
          var timeRemaining = this.destination - Date.now();
          return readableTimespan(timeRemaining);
-      }
+      },
    };
+   timer.update = function() {
+      var displayText = timer.read().minutes + "m " + timer.read().seconds + "s";
+      timer.display.text(displayText);
+   };
+   return timer;
 }
 
 $("#timer1 .start-btn").click(function(){
-   var timer = timerFactory();
-   console.log(timer.read());
+   var timer = timerFactory(25, $('#timer1'));
+   setInterval(timer.update, 1000);
 });
