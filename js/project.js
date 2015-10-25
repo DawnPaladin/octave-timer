@@ -14,14 +14,26 @@ function readableTimespan(milliseconds) {
    var minutes = Math.floor(msRemaining / minuteSize);
    msRemaining -= minutes * minuteSize;
    var seconds = Math.floor(msRemaining / secondSize);
+   msRemaining -= seconds * secondSize;
 
    return {
-      milliseconds: milliseconds,
+      totalMilliseconds: milliseconds,
+      milliseconds: msRemaining,
       seconds: seconds,
       minutes: minutes,
       hours: hours,
       days: days,
    };
+}
+
+function twoDigit(input) {
+   var string = String(input);
+   if (string.length > 2) {
+      string = string.slice(0,2);
+   } else if (string.length < 2) {
+      string = "0" + string;
+   }
+   return string;
 }
 
 function timerFactory(distance, $element) {
@@ -36,9 +48,9 @@ function timerFactory(distance, $element) {
       },
    };
    timer.interval = setInterval(function() {
-      var displayText = timer.read().minutes + "m " + timer.read().seconds + "s";
+      var displayText = twoDigit(timer.read().minutes) + ":" + twoDigit(timer.read().seconds) + "." + twoDigit(timer.read().milliseconds);
       timer.display.text(displayText);
-   }, 100);
+   }, 10);
    timer.clearInterval = function(){ clearInterval(timer.interval); };
    return timer;
 }
@@ -50,7 +62,7 @@ $("#timer1 .start-btn").click(function(){
       jQuery(this).data("timer", timer);
    } else { // pause timer
       timer = jQuery(this).data("timer");
-      var msRemaining = Number(timer.read().milliseconds);
+      var msRemaining = Number(timer.read().totalMilliseconds);
       timer.clearInterval();
       jQuery(this).data("timer", {});
       jQuery(this).data("msRemaining", msRemaining);
