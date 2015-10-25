@@ -16,6 +16,7 @@ function readableTimespan(milliseconds) {
    var seconds = Math.floor(msRemaining / secondSize);
 
    return {
+      milliseconds: milliseconds,
       seconds: seconds,
       minutes: minutes,
       hours: hours,
@@ -23,9 +24,8 @@ function readableTimespan(milliseconds) {
    };
 }
 
-function timerFactory(minutes, $element) {
+function timerFactory(distance, $element) {
    var start = new Date();
-   var distance = minutes * minuteInMs;
    var destination = new Date(start.valueOf() + distance);
    var timer = {
       destination: destination,
@@ -35,14 +35,24 @@ function timerFactory(minutes, $element) {
          return readableTimespan(timeRemaining);
       },
    };
-   timer.update = function() {
+   timer.interval = setInterval(function() {
       var displayText = timer.read().minutes + "m " + timer.read().seconds + "s";
       timer.display.text(displayText);
-   };
+   }, 100);
+   timer.clearInterval = function(){ clearInterval(timer.interval); };
    return timer;
 }
 
 $("#timer1 .start-btn").click(function(){
-   var timer = timerFactory(25, $('#timer1'));
-   setInterval(timer.update, 1000);
+   var timer;
+   if (jQuery.isEmptyObject(jQuery(this).data("timer"))) { // create timer
+      timer = timerFactory(25 * minuteInMs, $('#timer1'));
+      jQuery(this).data("timer", timer);
+   } else { // pause timer
+      timer = jQuery(this).data("timer");
+      var msRemaining = Number(timer.read().milliseconds);
+      timer.clearInterval();
+      jQuery(this).data("timer", {});
+      jQuery(this).data("msRemaining", msRemaining);
+   }
 });
