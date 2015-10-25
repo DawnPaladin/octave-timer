@@ -50,6 +50,10 @@ function timerFactory(distance, $element) {
    timer.interval = setInterval(function() {
       var displayText = twoDigit(timer.read().minutes) + ":" + twoDigit(timer.read().seconds) + "." + twoDigit(timer.read().milliseconds);
       timer.display.text(displayText);
+      if (timer.read().totalMilliseconds < 9) {
+         alert("Pomodoro complete!");
+         timer.clearInterval();
+      }
    }, 10);
    timer.clearInterval = function(){ clearInterval(timer.interval); };
    return timer;
