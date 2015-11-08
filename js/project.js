@@ -39,6 +39,8 @@ function twoDigit(input) {
 function timerFactory(distance, $element) {
    var start = new Date();
    var destination = new Date(start.valueOf() + distance);
+   var halfway = false;
+   var threeQuarters = false;
    var timer = {
       destination: destination,
       display: $element.find('.timer-display'),
@@ -46,7 +48,7 @@ function timerFactory(distance, $element) {
          var timeRemaining = this.destination - Date.now();
          return readableTimespan(timeRemaining);
       },
-      percentComplete: function() {
+      checkPercentComplete: function() {
          var origTimespan = destination - start;
          var timeElapsed = Date.now() - start;
          return timeElapsed / origTimespan;
@@ -54,12 +56,18 @@ function timerFactory(distance, $element) {
    };
    timer.interval = setInterval(function() {
       var displayText = twoDigit(timer.read().minutes) + ":" + twoDigit(timer.read().seconds) + "." + twoDigit(timer.read().milliseconds);
-      var halfway = false;
-      var threeQuarters = false;
       timer.display.text(displayText);
-      $('#timer1 progress').attr('value', timer.percentComplete());
+      $('#timer1 progress').attr('value', timer.checkPercentComplete());
+      if (timer.checkPercentComplete() > 0.5 && halfway === false) {
+         halfway = true;
+         console.log("Halfway");
+      }
+      if (timer.checkPercentComplete() > 0.75 && threeQuarters === false) {
+         threeQuarters = true;
+         console.log("Three quarters");
+      }
       if (timer.read().totalMilliseconds < 9) {
-         alert("Pomodoro complete!");
+         console.warn("Pomodoro complete!");
          timer.clearInterval();
       }
    }, 10);
@@ -71,7 +79,7 @@ $("#timer1 .start-btn").click(function(){
    var timer;
    $('.timer-controls.running, .timer-controls.stopped').toggleClass('hidden');
    if (jQuery.isEmptyObject(jQuery(this).data("timer"))) { // create timer
-      timer = timerFactory(1 * minuteInMs, $('#timer1'));
+      timer = timerFactory(0.25 * minuteInMs, $('#timer1'));
       jQuery(this).data("timer", timer);
    } else { // pause timer
       timer = jQuery(this).data("timer");
