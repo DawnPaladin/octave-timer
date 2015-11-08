@@ -16,15 +16,14 @@
       width: 100%;
    }
    .timer-input {
-      width: 1.5em;
+      width: 2em;
       display: inline;
-      font-size: 28px;
+      font-size: 22px;
       margin-top: 8px;
       input {
-         border: none;
+         border: 1px solid white;
          background-color: hsl(0, 7%, 97%);
          border-radius: 5px;
-         padding-right: .25em;
          text-align: right;
       }
    }

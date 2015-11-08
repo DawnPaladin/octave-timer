@@ -74,9 +74,14 @@ function timerFactory(distance, $element) {
 }
 
 $("#timer1 .start-btn").click(function(){
-   console.log("Start");
    var minutes = $('#minutes-input').val();
    var seconds = $('#seconds-input').val();
+   if (minutes === "" && seconds === "") {
+      $('input').css('border', '1px solid red');
+      return false;
+   } else {
+      $('input').css('border', '1px solid white');
+   }
    var timeToSet = 1000 * 60 * minutes + 1000 * seconds;
    $('.btn-primary').toggleClass('hidden');
    timer = timerFactory(timeToSet, $('#timer1'));
