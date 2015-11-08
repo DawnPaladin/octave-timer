@@ -1,5 +1,3 @@
-var minuteInMs = 1000 * 60;
-
 function readableTimespan(milliseconds) {
    var secondSize = 1000;
    var minuteSize = secondSize * 60;
@@ -76,10 +74,13 @@ function timerFactory(distance, $element) {
 }
 
 $("#timer1 .start-btn").click(function(){
+   var minutes = $('#minutes-input').val();
+   var seconds = $('#seconds-input').val();
+   var timeToSet = 1000 * 60 * minutes + 1000 * seconds;
    var timer;
    $('.timer-controls.running, .timer-controls.stopped').toggleClass('hidden');
    if (jQuery.isEmptyObject(jQuery(this).data("timer"))) { // create timer
-      timer = timerFactory(0.25 * minuteInMs, $('#timer1'));
+      timer = timerFactory(timeToSet, $('#timer1'));
       jQuery(this).data("timer", timer);
    } else { // pause timer
       timer = jQuery(this).data("timer");
