@@ -34,6 +34,10 @@ function twoDigit(input) {
    return string;
 }
 
+function play(id) {
+   document.getElementById(id).play();
+}
+
 function timerFactory(distance, $element) {
    var start = new Date();
    var destination = new Date(start.valueOf() + distance);
@@ -58,14 +62,14 @@ function timerFactory(distance, $element) {
       $('#timer1 progress').attr('value', timer.checkPercentComplete());
       if (timer.checkPercentComplete() > 0.5 && halfway === false) {
          halfway = true;
-         console.log("Halfway");
+         play('half-sound');
       }
       if (timer.checkPercentComplete() > 0.75 && threeQuarters === false) {
          threeQuarters = true;
-         console.log("Three quarters");
+         play('third-sound');
       }
       if (timer.read().totalMilliseconds < 9) {
-         console.warn("Pomodoro complete!");
+         play('scale-sound');
          timer.stop();
       }
    }, 10);
@@ -79,12 +83,12 @@ $("#timer1 .start-btn").click(function(){
    if (minutes === "" && seconds === "") {
       $('input').css('border', '1px solid red');
       return false;
-   } else {
-      $('input').css('border', '1px solid white');
    }
+   $('input').css('border', '1px solid white');
    var timeToSet = 1000 * 60 * minutes + 1000 * seconds;
    $('.btn-primary').toggleClass('hidden');
    timer = timerFactory(timeToSet, $('#timer1'));
+   play('octave-sound');
 });
 
 $('#timer1 .stop-btn').click(function(){
