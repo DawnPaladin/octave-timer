@@ -38,6 +38,16 @@ function play(id) {
    document.getElementById(id).play();
 }
 
+function flash(selector) {
+   function fadeOut(then) {
+      $(selector).animate({opacity: 0}, "slow", then);
+   }
+   function fadeIn(then) {
+      $(selector).animate({opacity: 1}, "fast", then);
+   }
+   fadeOut(fadeIn(fadeOut(fadeIn(fadeOut(fadeIn)))));
+}
+
 function timerFactory(distance, $element) {
    var start = new Date();
    var destination = new Date(start.valueOf() + distance);
@@ -77,6 +87,9 @@ function timerFactory(distance, $element) {
    timer.stop = function(){
       clearInterval(timer.interval);
       $('.btn-primary').toggleClass('hidden');
+      flash('.timer-display');
+      $('.timer-display').text("00:00.00");
+      document.title = "Octave Timer";
    };
    return timer;
 }
