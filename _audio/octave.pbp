@@ -1,0 +1,26 @@
+<trackboy_project >
+<point>
+<pages number="1" />
+<bpm number="50" />
+<track number= "0"volume="0" pan="0" highs="0" lows="0" echo="0" type="2" />
+<track number= "1"volume="0" pan="0" highs="0" lows="0" echo="0" type="2" />
+<track number= "2"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "3"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "4"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "5"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "6"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "7"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "8"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "9"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "10"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "11"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "12"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "13"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "14"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<track number= "15"volume="0" pan="0" highs="0" lows="0" echo="0" type="0" />
+<note track="0" page="0" position= "0" originalNote="C4" currentPitch="261.63" pan="0" gain="0" />
+<note track="0" page="0" position= "3" originalNote="stop" currentPitch="0" pan="0" gain="0" />
+<note track="1" page="0" position= "1" originalNote="C5" currentPitch="523.25" pan="0" gain="0" />
+<note track="1" page="0" position= "3" originalNote="stop" currentPitch="0" pan="0" gain="0" />
+</point>
+</trackboy_project>
