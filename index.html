@@ -13,16 +13,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-5" id="timer1">
-			<div class="timer-display">25:00.00</div>
+			<div class="timer-display">00:00.00</div>
 			<progress value=0></progress><br>
 			<div class="timer-input">
 				<input type="text" id="minutes-input" class="timer-input" placeholder="00">m
 				<input type="text" id="seconds-input" class="timer-input" placeholder="00">s
 			</div><br>
-			<div class="timer-controls">
+			<div class="timer-controls running hidden">
+				<button class="btn"><span class="glyphicon glyphicon-star-empty"></span></button>
+				<button class="btn btn-primary"><span class="glyphicon glyphicon-stop"></span></button>
+				<button class="btn"><span class="glyphicon glyphicon-repeat"></span></button>
+			</div>
+			<div class="timer-controls stopped">
 				<button class="start-btn btn btn-primary"><span class="glyphicon glyphicon-play"></span></button>
-				<button class="btn"><span class="glyphicon"></span></button>
-				<button class="btn"><span class="glyphicon"></span></button>
 			</div>
 		</div>
 	</div>

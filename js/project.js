@@ -46,10 +46,18 @@ function timerFactory(distance, $element) {
          var timeRemaining = this.destination - Date.now();
          return readableTimespan(timeRemaining);
       },
+      percentComplete: function() {
+         var origTimespan = destination - start;
+         var timeElapsed = Date.now() - start;
+         return timeElapsed / origTimespan;
+      }
    };
    timer.interval = setInterval(function() {
       var displayText = twoDigit(timer.read().minutes) + ":" + twoDigit(timer.read().seconds) + "." + twoDigit(timer.read().milliseconds);
+      var halfway = false;
+      var threeQuarters = false;
       timer.display.text(displayText);
+      $('#timer1 progress').attr('value', timer.percentComplete());
       if (timer.read().totalMilliseconds < 9) {
          alert("Pomodoro complete!");
          timer.clearInterval();
@@ -61,9 +69,9 @@ function timerFactory(distance, $element) {
 
 $("#timer1 .start-btn").click(function(){
    var timer;
-   $(".start-btn .glyphicon").toggleClass("glyphicon-play").toggleClass("glyphicon-pause");
+   $('.timer-controls.running, .timer-controls.stopped').toggleClass('hidden');
    if (jQuery.isEmptyObject(jQuery(this).data("timer"))) { // create timer
-      timer = timerFactory(25 * minuteInMs, $('#timer1'));
+      timer = timerFactory(1 * minuteInMs, $('#timer1'));
       jQuery(this).data("timer", timer);
    } else { // pause timer
       timer = jQuery(this).data("timer");
