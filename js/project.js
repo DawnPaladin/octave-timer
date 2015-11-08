@@ -73,7 +73,10 @@ function timerFactory(distance, $element) {
          timer.stop();
       }
    }, 10);
-   timer.stop = function(){ clearInterval(timer.interval); };
+   timer.stop = function(){
+      clearInterval(timer.interval);
+      $('.btn-primary').toggleClass('hidden');
+   };
    return timer;
 }
 
@@ -93,5 +96,4 @@ $("#timer1 .start-btn").click(function(){
 
 $('#timer1 .stop-btn').click(function(){
    timer.stop();
-   $('.btn-primary').toggleClass('hidden');
 });
