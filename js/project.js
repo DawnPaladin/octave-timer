@@ -59,6 +59,7 @@ function timerFactory(distance, $element) {
    timer.interval = setInterval(function() {
       var displayText = twoDigit(timer.read().minutes) + ":" + twoDigit(timer.read().seconds) + "." + twoDigit(timer.read().milliseconds);
       timer.display.text(displayText);
+      document.title = displayText.slice(0, -3) + " - Octave Timer";
       $('#timer1 progress').attr('value', timer.checkPercentComplete());
       if (timer.checkPercentComplete() > 0.5 && halfway === false) {
          halfway = true;
