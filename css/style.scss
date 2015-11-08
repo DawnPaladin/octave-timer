@@ -24,13 +24,14 @@
          border: none;
          background-color: hsl(0, 7%, 97%);
          border-radius: 5px;
+         padding-right: .25em;
+         text-align: right;
       }
    }
    .timer-controls {
       margin-top: 15px;
       text-align: center;
-   }
-   .timer-controls.stopped .start-btn {
-      width: 100%;
+      .btn-primary { width: 66%; }
+      .btn:not(.btn-primary) { width: 30%; }
    }
 }

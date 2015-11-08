@@ -66,27 +66,23 @@ function timerFactory(distance, $element) {
       }
       if (timer.read().totalMilliseconds < 9) {
          console.warn("Pomodoro complete!");
-         timer.clearInterval();
+         timer.stop();
       }
    }, 10);
-   timer.clearInterval = function(){ clearInterval(timer.interval); };
+   timer.stop = function(){ clearInterval(timer.interval); };
    return timer;
 }
 
 $("#timer1 .start-btn").click(function(){
+   console.log("Start");
    var minutes = $('#minutes-input').val();
    var seconds = $('#seconds-input').val();
    var timeToSet = 1000 * 60 * minutes + 1000 * seconds;
-   var timer;
-   $('.timer-controls.running, .timer-controls.stopped').toggleClass('hidden');
-   if (jQuery.isEmptyObject(jQuery(this).data("timer"))) { // create timer
-      timer = timerFactory(timeToSet, $('#timer1'));
-      jQuery(this).data("timer", timer);
-   } else { // pause timer
-      timer = jQuery(this).data("timer");
-      var msRemaining = Number(timer.read().totalMilliseconds);
-      timer.clearInterval();
-      jQuery(this).data("timer", {});
-      jQuery(this).data("msRemaining", msRemaining);
-   }
+   $('.btn-primary').toggleClass('hidden');
+   timer = timerFactory(timeToSet, $('#timer1'));
+});
+
+$('#timer1 .stop-btn').click(function(){
+   timer.stop();
+   $('.btn-primary').toggleClass('hidden');
 });
