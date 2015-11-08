@@ -70,7 +70,7 @@ function timerFactory(distance, $element) {
       var displayText = twoDigit(timer.read().minutes) + ":" + twoDigit(timer.read().seconds) + "." + twoDigit(timer.read().milliseconds);
       timer.display.text(displayText);
       document.title = displayText.slice(0, -3) + " - Octave Timer";
-      $('#timer1 progress').attr('value', timer.checkPercentComplete());
+      $('#octave-timer progress').attr('value', timer.checkPercentComplete());
       if (timer.checkPercentComplete() > 0.5 && halfway === false) {
          halfway = true;
          play('half-sound');
@@ -94,7 +94,7 @@ function timerFactory(distance, $element) {
    return timer;
 }
 
-$("#timer1 .start-btn").click(function(){
+$("#octave-timer .start-btn").click(function(){
    var minutes = $('#minutes-input').val();
    var seconds = $('#seconds-input').val();
    if (minutes === "" && seconds === "") {
@@ -104,11 +104,11 @@ $("#timer1 .start-btn").click(function(){
    $('input').css('border', '1px solid white');
    var timeToSet = 1000 * 60 * minutes + 1000 * seconds;
    $('.btn-primary').toggleClass('hidden');
-   timer = timerFactory(timeToSet, $('#timer1'));
+   timer = timerFactory(timeToSet, $('#octave-timer'));
    play('octave-sound');
 });
 
-$('#timer1 .stop-btn').click(function(){
+$('#octave-timer .stop-btn').click(function(){
    timer.stop();
 });
 
