@@ -98,3 +98,11 @@ $("#timer1 .start-btn").click(function(){
 $('#timer1 .stop-btn').click(function(){
    timer.stop();
 });
+
+$('input').on('input', function() {
+   localStorage.setItem("minutes", $('#minutes-input').val());
+   localStorage.setItem("seconds", $('#seconds-input').val());
+   $('input').css('border', '1px solid white');
+});
+$('#minutes-input').val(localStorage.getItem("minutes"));
+$('#seconds-input').val(localStorage.getItem("seconds"));

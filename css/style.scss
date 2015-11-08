@@ -30,7 +30,6 @@
    .timer-controls {
       margin-top: 15px;
       text-align: center;
-      .btn-primary { width: 66%; }
-      .btn:not(.btn-primary) { width: 30%; }
+      .btn-primary { width: 100%; }
    }
 }
