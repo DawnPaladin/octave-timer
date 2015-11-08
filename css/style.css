@@ -1,9 +1,13 @@
 html body {
-   background-color: black;
+}
+
+#timer1 {
+   padding: 1em;
+   border: 1px solid silver;
+   border-radius: 5px;
 }
 
 #timer1 .timer-display {
-   font-family: "Orbitron", monospace;
+   font-family: "Roboto", sans-serif;
    font-size: 36px;
-   color: red;
 }

@@ -61,6 +61,7 @@ function timerFactory(distance, $element) {
 
 $("#timer1 .start-btn").click(function(){
    var timer;
+   $(".start-btn .glyphicon").toggleClass("glyphicon-play").toggleClass("glyphicon-pause");
    if (jQuery.isEmptyObject(jQuery(this).data("timer"))) { // create timer
       timer = timerFactory(25 * minuteInMs, $('#timer1'));
       jQuery(this).data("timer", timer);
