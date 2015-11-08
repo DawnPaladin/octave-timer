@@ -1,0 +1,28 @@
+html body {
+}
+
+#timer1 {
+   width: 180px;
+   margin-top: 10em;
+   padding: 1em;
+   border: 1px solid silver;
+   border-radius: 5px;
+   .timer-display {
+      display: inline-block;
+      font-family: "Roboto", sans-serif;
+      font-size: 36px;
+   }
+   progress {
+      display: inline-block;
+   }
+   .timer-input {
+      width: 2em;
+      display: inline;
+      font-size: 26px;
+      margin-top: 8px;
+   }
+   .timer-controls {
+      margin-top: 15px;
+      text-align: center;
+   }
+}
