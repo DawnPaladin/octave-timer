@@ -1,0 +1,116 @@
+{
+    "dir": "ltr",
+    "lang": "English",
+    "name": "Octave Timer",
+    "scope": "/octave-timer/",
+    "display": "minimal-ui",
+    "start_url": "https://jamesharris.design/octave-timer/",
+    "short_name": "OTimer",
+    "theme_color": "transparent",
+    "description": "A kitchen timer with musical tones",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/favicon.ico",
+            "sizes": "16x16"
+        },
+        {
+            "src": "/images/ec9ef808-0f83-96e9-7879-ab26f871e008.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/7b4bd98d-df8b-477b-88c0-1a7eb57ae0a2.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/f0d12501-6a09-83a4-8df1-4524da72ebb3.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/fdcd778d-2c60-79ba-fe46-9bdfdb475440.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c1bd5a71-5ef5-6921-eba5-288f07618374.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/cd01c99e-d50f-5a1a-913d-7a8bbe7c4764.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/0526c572-2976-15ac-00dc-004854dc691a.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/5fe6cf93-a2a9-f3e6-70c0-b4e066db4bee.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/98bd8bfc-0bc3-7e3b-7e40-9a0fb293dfaf.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/12516c6d-604f-403b-594a-d73af182a3c3.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/bf8ae079-d5f2-33a3-654e-06c827e4d978.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/68b3d602-bdb8-984f-2a33-453a0468b47e.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/31270749-5e1f-3af3-9bfb-0f7800cfe651.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/52e757dc-4e74-5cc6-e0af-90fce8c9f311.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a4e641ca-1efc-742a-1b4c-118f622c5c2b.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/61321f23-ca63-e313-d91a-6fee5e20a9d3.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/4dea1310-3ba8-3437-5caf-befd1ae36ac5.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/e8d58917-23a8-eef8-c10a-3e696a1e74d8.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/6be2fb17-0ece-e54d-9b90-5df99467a134.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}
